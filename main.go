@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/mgutz/ansi"
 )
 
 func epur_zero(result []string) []string {
@@ -13,8 +15,12 @@ func epur_zero(result []string) []string {
 }
 
 func main() {
+	if len(os.Args[1:]) <= 1 {
+		red := ansi.ColorFunc("red+")
+		fmt.Printf(red("▶ WARNING : Please insert THINGS has argument! \n"))
+		return
+	}
 	args := strings.Replace(os.Args[1:][0], " ", "", -1)
-	// arg1 := args[:strings.IndexByte(args, '=')]
 	result := strings.Split(args, "=")
 	fmt.Println(result)
 	result = epur_zero(result)
