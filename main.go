@@ -87,7 +87,10 @@ func render_reduced_form(tab [4]int) {
 	}
 	if tab[1] != 0 {
 		if tab[1] < 0 {
-			fmt.Printf("- %d * X^1 ", tab[1]*-1)
+			if tab[0] != 0 {
+				fmt.Printf("- ")
+			}
+			fmt.Printf("%d * X^1 ", tab[1]*-1)
 		} else {
 			fmt.Printf("+ %d * X^1 ", tab[1])
 		}
@@ -95,7 +98,10 @@ func render_reduced_form(tab [4]int) {
 	}
 	if tab[2] != 0 {
 		if tab[2] < 0 {
-			fmt.Printf("- %d * X^2 ", tab[2]*-1)
+			if tab[0] != 0 || tab[1] != 0 {
+				fmt.Printf("- ")
+			}
+			fmt.Printf("%d * X^2 ", tab[2]*-1)
 		} else {
 			fmt.Printf("+ %d * X^2 ", tab[2])
 		}
