@@ -114,7 +114,7 @@ func render_reduced_form(tab [4]int) {
 func main() {
 	if len(os.Args[1:]) < 1 {
 		red := ansi.ColorFunc("red+")
-		fmt.Printf(red("▶ WARNING : Please insert THINGS has argument! \n"))
+		fmt.Printf(red("▶ WARNING : Please insert THINGS as argument! \n"))
 		return
 	}
 	if !check_degree() {
